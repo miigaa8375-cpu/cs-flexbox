@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лаборатори 03 — Оюутны бүртгэлийн анкет + css</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header id="top" class="page-header">
+    <p class="header-subtitle">ВЕБ ЗОХИОМЖ · ЛАБОРАТОРИ 03</p>
+    <h1 class="page-title">Оюутны бүртгэлийн анкет</h1>
+
+    <nav class="navigation" aria-label="Үндсэн цэс">
+      <a href="#registration">Анкет бөглөх</a>
+      <a href="#interests">Миний сонирхол</a>
+      <a href="#grades">Миний дүн</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <article id="registration" class="card form-card">
+      <span class="badge">Лаборатори 03</span>
+
+      <section aria-labelledby="form-title">
+        <h2 id="form-title" class="section-title">
+          Хэрэглэгчийн анкет бөглөх
+        </h2>
+
+        <p class="muted">
+          Мэдээллээ үнэн зөв оруулна уу.
+          * тэмдэгтэй талбаруудыг заавал бөглөнө.
+        </p>
+
+        <form
+          id="registration-form"
+          action="#registration"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <fieldset class="form-group">
+            <legend>01 · Хувийн мэдээлэл</legend>
+
+            <div class="grid">
+              <div class="form-field">
+                <label for="fullname" class="form-label">
+                  Овог нэр *
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Овог нэр"
+                  autocomplete="name"
+                  required
+                  minlength="2"
+                  pattern=".*\S.*"
+                  title="Хоосон зайнаас өөр тэмдэгттэй, 2-оос доошгүй урттай нэр оруулна уу."
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="email" class="form-label">
+                  Цахим хаяг *
+                </label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="example@domain.com"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+
+              <div class="form-field">
+                <label for="password" class="form-label">
+                  Нууц үг *
+                </label>
+                <input
+                  class="form-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  autocomplete="new-password"
+                  required
+                  minlength="6"
+                  aria-describedby="password-help"
+                >
+                <small id="password-help" class="field-help">
+                  Хамгийн багадаа 6 тэмдэгт.
+                </small>
+              </div>
+
+              <div class="form-field">
+                <label for="phone" class="form-label">
+                  Утасны дугаар *
+                </label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  inputmode="numeric"
+                  autocomplete="tel-national"
+                  pattern="[0-9]{8}"
+                  placeholder="88112233"
+                  required
+                  title="8 оронтой утасны дугаар оруулна уу."
+                  aria-describedby="phone-help"
+                >
+                <small id="phone-help" class="field-help">
+                  Зай, зураасгүй 8 цифр оруулна.
+                </small>
+              </div>
+
+              <div class="form-field">
+                <label for="dob" class="form-label">
+                  Төрсөн огноо *
+                </label>
+                <input
+                  class="form-input"
+                  type="date"
+                  id="dob"
+                  name="dob"
+                  autocomplete="bday"
+                  required
+                >
+              </div>
+
+              <fieldset class="subgroup">
+                <legend>Хүйс *</legend>
+
+                <div class="choices">
+                  <span class="choice">
+                    <input
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      value="male"
+                      required
+                    >
+                    <label for="male">Эрэгтэй</label>
+                  </span>
+
+                  <span class="choice">
+                    <input
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="female"
+                      required
+                    >
+                    <label for="female">Эмэгтэй</label>
+                  </span>
+                </div>
+              </fieldset>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend>02 · Боловсрол ба сонирхол</legend>
+
+            <div class="grid">
+              <div class="form-field">
+                <label for="degree" class="form-label">
+                  Суралцаж буй түвшин *
+                </label>
+                <select
+                  class="form-input"
+                  id="degree"
+                  name="degree"
+                  required
+                >
+                  <option value="">— Сонгоно уу —</option>
+                  <option value="bachelor">Бакалавр</option>
+                  <option value="master">Магистр</option>
+                  <option value="doctor">Докторант</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="avatar" class="form-label">
+                  Профайл зураг
+                </label>
+                <input
+                  class="form-input"
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept="image/*"
+                >
+              </div>
+
+              <fieldset class="subgroup wide">
+                <legend>Эзэмшсэн ур чадвар</legend>
+
+                <div class="choices">
+                  <span class="choice">
+                    <input
+                      type="checkbox"
+                      id="html"
+                      name="skills"
+                      value="HTML/CSS"
+                    >
+                    <label for="html">HTML5 / CSS3</label>
+                  </span>
+
+                  <span class="choice">
+                    <input
+                      type="checkbox"
+                      id="js"
+                      name="skills"
+                      value="JavaScript"
+                    >
+                    <label for="js">JavaScript</label>
+                  </span>
+                </div>
+              </fieldset>
+
+              <div class="form-field wide">
+                <label for="bio" class="form-label">
+                  Товч танилцуулга / Өөрийн тухай
+                </label>
+                <textarea
+                  class="form-input"
+                  id="bio"
+                  name="bio"
+                  rows="3"
+                  placeholder="Өөрийн сонирхол, суралцах зорилгоо бичнэ үү..."
+                ></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">
+              Анкет илгээх
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              Дахин эхлүүлэх
+            </button>
+          </div>
+
+
+          <p id="result" class="result" role="status" hidden></p>
+
+          <noscript>
+            <p class="muted">
+              Илгээх үйлдлийн жишээг туршихын тулд
+              JavaScript-ийг идэвхжүүлнэ үү.
+            </p>
+          </noscript>
+        </form>
+      </section>
+    </article>
+
+    <section
+      id="interests"
+      class="card"
+      aria-labelledby="interests-title"
+    >
+      <h2 id="interests-title" class="section-title">
+        Миний сонирхол
+      </h2>
+
+      <ul class="interest-list">
+        <li>Веб хөгжүүлэлт</li>
+        <li>Фото зураг авах</li>
+        <li>Кино үзэх</li>
+      </ul>
+    </section>
+
+    <section
+      id="grades"
+      class="card"
+      aria-labelledby="grades-title"
+    >
+      <h2 id="grades-title" class="section-title">Миний дүн</h2>
+
+      <table class="grades-table">
+        <caption>Лабораторийн жишээ дүн</caption>
+        <thead>
+          <tr>
+            <th scope="col">Хичээл</th>
+            <th scope="col">Дүн</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Биеийн тамир</th>
+            <td>95</td>
+          </tr>
+          <tr>
+            <th scope="row">Мэдээллийн сан</th>
+            <td>88</td>
+          </tr>
+          <tr>
+            <th scope="row">Алгоритм</th>
+            <td>92</td>
+          </tr>
+          <tr>
+            <th scope="row">Түүх</th>
+            <td>98</td>
+          </tr>
+          <tr>
+            <th scope="row">Харилцааны англи хэл</th>
+            <td>93</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 · Веб зохиомж · Лаборатори 03</p>
+  </footer>
+
+</body>
+</html>
